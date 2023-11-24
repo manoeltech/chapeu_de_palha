@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Pedidos</h1>
+
+<div id="orders">
+  <% @orders.each do |order| %>
+    <p>Status: <%= order.status %> </p>
+    <p>Criado em: <%= order.created_at %> </p>
+    <p>Produto: <%= order.product.name %> </p>
+    <p>Valor: <%= order.product.value %> </p>
+    <p>Cliente: <%= order.client.name %> </p>
+    </div><br><br>
+  <% end %>
+
+<%= link_to "Novo Pedido", new_order_path %> | <%= link_to "Voltar", "/" %>

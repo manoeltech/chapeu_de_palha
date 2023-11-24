@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Clientes</h1>
+
+<div id="clients">
+  <% @clients.each do |client| %>
+    <p>Nome: <%= client.name %></p>
+    <p>Quantidade de Pedidos: <%= client.orders.count %></p><br>
+  <% end %>
+</div>
+
+<% client = @clients.max_by { |client| client.orders.count} %>
+<p>Vencedor: <%= client.name %>
+<p>Quantidade: <%= client.orders.count %></p>
+
+
+<%= link_to "Novo Cliente", new_client_path %> | <%= link_to "Voltar", "/" %>

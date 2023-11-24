@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Products</h1>
+
+<% @products.each do |product| %>
+  <p>ID: <%= product.id %>
+  <p>Nome: <%= product.name %> </p>
+  <p>Valor: <%= product.value %> </p>
+  <p>Quantidade: <%= product.amount %></p>
+  <p>Ingredientes: <%= product.description %> </p>
+  <%= link_to "Editar", product, style: "text-decoration: none;" %> |
+  <%= link_to "Excluir", product_path(product.id), method: :delete, style: "text-decoration: none;"%><br><br>
+<% end %>
+
+<br>
+
+<% product_more_buy = @products.max_by { |product| product.orders.count } %>
+<p>Produto mais vendido: <%= product_more_buy.name %></p>
+
+
+<%= link_to "Criar Produto", new_product_path, style:"text-decoration: none;" %> | <%= link_to "Voltar", "/", style:"text-decoration: none;" %>

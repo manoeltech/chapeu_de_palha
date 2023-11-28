@@ -5,10 +5,10 @@
 <% @products.each do |product| %>
   <p>ID: <%= product.id %>
   <p>Nome: <%= product.name %> </p>
-  <p>Valor: <%= product.value %> </p>
+  <p>Valor: <%= formatter_money(product.value) %> </p>
   <p>Quantidade: <%= product.amount %></p>
   <p>Ingredientes: <%= product.description %> </p>
-  <%= link_to "Editar", product, style: "text-decoration: none;" %> |
+  <%= link_to "Editar", edit_product_path(product.id), style: "text-decoration: none;" %> |
   <%= link_to "Excluir", product_path(product.id), method: :delete, style: "text-decoration: none;"%><br><br>
 <% end %>
 

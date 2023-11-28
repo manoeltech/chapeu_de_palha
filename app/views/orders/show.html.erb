@@ -1,6 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @order %>
+<p>Pedido Nº #<%= @order.id %></p>
+<p>Status: <%= @order.status %> </p>
+<p>Dia: <%= formatter_date(@order.created_at) %> </p>
+<p>Horário: <%= formatter_time(@order.created_at) %> </p>
+<p>Produto: <%= @order.product.name %> </p>
+<p>Valor: <%= formatter_money(@order.product.value) %> </p>
+<p>Cliente: <%= @order.client.name %> </p>
 
 <div>
   <%= link_to "Editar", edit_order_path(@order) %> |
